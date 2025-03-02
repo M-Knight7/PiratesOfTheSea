@@ -6,8 +6,88 @@
     <title>PiratesOfTheSea</title>
     <link href="./styles.css" rel="stylesheet">
   </head>
-  <body>
-    <div>PiratesWinner</div>
+  <body> 
+    <div id="application">
+        <div id="upper-screen">
+            <div id="status-bar">
+            <div id="flagship-status-board" class="status-board">
+                <div class="stat"> <div class="label">HP</div> <strong><span id="flagship-Health">flagship-Health</span></strong>  </div>
+                <div class="stat"> <div class="label">ATK</div> <strong><span id="flagship-Attack">flagship-Attack</span></strong>  </div>
+            </div>
+
+            <div id="enemy-status-board" class="status-board">
+                <div class="stat"> <div class="label">HP</div> <strong><span id="enemy-Health">enemy-Health</span></strong>  </div>
+                <div class="stat"> <div class="label">ATK</div> <strong><span id="enemy-Attack">enemy-Attack</span></strong>  </div>
+            </div>
+
+            </div>
+
+            <div class="water">
+                <div class="wave-container">
+                <svg class="waves" viewBox="0 0 5760 500" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                    <g>
+                        <!-- First wave -->
+                        <path d="M 0,700 L 0,262 C 25.7,208 51.4,154 72,141 C 92.5,127 107.9,152 135,198 C 
+                                 162,243 200,307 227,354 C 253,400 266,429 287,387 C 307,344 334,231 357,215 
+                                 C 379,198 397,279 424,300 C 450,320 485,281 510,300 C 534,318 548,395 571,358 
+                                 C 593,320 625,168 650,155 C 674,141 690,265 713,306 C 735,346 762,301 788,310 
+                                 C 813,318 836,379 864,354 C 891,328 924,216 947,207 C 969,197 981,291 1001,324 
+                                 C 1020,356 1047,327 1070,321 C 1092,314 1111,330 1141,343 C 1170,355 1210,363 1234,355 
+                                 C 1257,346 1263,321 1284,289 C 1304,256 1338,214 1367,209 C 1395,203 1417,232 1440,262 
+                                 L 1440,700 L 0,700 Z" fill="currentColor" fill-opacity="1"/>
+            
+                        <!-- Second wave -->
+                        <path d="M 0,700 L 0,262 C 25.7,208 51.4,154 72,141 C 92.5,127 107.9,152 135,198 C 
+                                 162,243 200,307 227,354 C 253,400 266,429 287,387 C 307,344 334,231 357,215 
+                                 C 379,198 397,279 424,300 C 450,320 485,281 510,300 C 534,318 548,395 571,358 
+                                 C 593,320 625,168 650,155 C 674,141 690,265 713,306 C 735,346 762,301 788,310 
+                                 C 813,318 836,379 864,354 C 891,328 924,216 947,207 C 969,197 981,291 1001,324 
+                                 C 1020,356 1047,327 1070,321 C 1092,314 1111,330 1141,343 C 1170,355 1210,363 1234,355 
+                                 C 1257,346 1263,321 1284,289 C 1304,256 1338,214 1367,209 C 1395,203 1417,232 1440,262 
+                                 L 1440,700 L 0,700 Z" fill="currentColor" fill-opacity="1" transform="translate(1440,0)"/>
+            
+                        <!-- Third wave -->
+                        <path d="M 0,700 L 0,262 C 25.7,208 51.4,154 72,141 C 92.5,127 107.9,152 135,198 C 
+                                 162,243 200,307 227,354 C 253,400 266,429 287,387 C 307,344 334,231 357,215 
+                                 C 379,198 397,279 424,300 C 450,320 485,281 510,300 C 534,318 548,395 571,358 
+                                 C 593,320 625,168 650,155 C 674,141 690,265 713,306 C 735,346 762,301 788,310 
+                                 C 813,318 836,379 864,354 C 891,328 924,216 947,207 C 969,197 981,291 1001,324 
+                                 C 1020,356 1047,327 1070,321 C 1092,314 1111,330 1141,343 C 1170,355 1210,363 1234,355 
+                                 C 1257,346 1263,321 1284,289 C 1304,256 1338,214 1367,209 C 1395,203 1417,232 1440,262 
+                                 L 1440,700 L 0,700 Z" fill="currentColor" fill-opacity="1" transform="translate(2880,0)"/>
+            
+                        <!-- Fourth wave -->
+                        <path d="M 0,700 L 0,262 C 25.7,208 51.4,154 72,141 C 92.5,127 107.9,152 135,198 C 
+                                 162,243 200,307 227,354 C 253,400 266,429 287,387 C 307,344 334,231 357,215 
+                                 C 379,198 397,279 424,300 C 450,320 485,281 510,300 C 534,318 548,395 571,358 
+                                 C 593,320 625,168 650,155 C 674,141 690,265 713,306 C 735,346 762,301 788,310 
+                                 C 813,318 836,379 864,354 C 891,328 924,216 947,207 C 969,197 981,291 1001,324 
+                                 C 1020,356 1047,327 1070,321 C 1092,314 1111,330 1141,343 C 1170,355 1210,363 1234,355 
+                                 C 1257,346 1263,321 1284,289 C 1304,256 1338,214 1367,209 C 1395,203 1417,232 1440,262 
+                                 L 1440,700 L 0,700 Z" fill="currentColor" fill-opacity="1" transform="translate(4320,0)"/>
+                    </g>
+                </svg>
+                </div>
+                <div class="deep-water"></div>
+            </div>
+                
+
+            
+            
+              
+
+
+        </div>
+
+        <div id="lower-screen">
+            <div id="action-board">
+                <button class="action-button" id="canon">Canon</button>
+                <button class="action-button" id="storm">Storm</button>        
+            </div>
+
+            <div id="future-board"></div>
+        </div>
+    </div>
 	<script src="./script.js"></script>
   </body>
 </html>
