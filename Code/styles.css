@@ -12,14 +12,14 @@
   
     --font-headline: "Roboto Mono", monospace;
     --font-family: "Lato", sans-serif;
-  }
+}
   
-  *, ::before, ::after {
+*, ::before, ::after {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-  }
+}
   
-  body {
+body {
   overflow: hidden;
-  }
+}
