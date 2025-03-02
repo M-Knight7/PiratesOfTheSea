@@ -1,17 +1,18 @@
-class entity {
+export class Entity {
 
     maxHealth: number;
     health: number;
     alive: boolean;
     attackingPower: number;
-    attackAction: (number) => Damage;
+    attackList: Array<Attack>;
 
-    constructor(maxHealth: number, attackingPower: number, attackAction: (number) => Damage) {
+    constructor(maxHealth: number,
+            attackingPower: number) {
         this.maxHealth = maxHealth;
         this.health = maxHealth;
         this.attackingPower = attackingPower;
-        this.attackAction = attackAction;
         this.alive = true;
+        this.attackList = [];
     }
 
     takeDamage(damage: Damage) {
@@ -25,13 +26,26 @@ class entity {
         }
     }
 
-    attack() {
-        return this.attackAction(this.attackingPower);
+    attack(name: string): Damage {
+        const attack = this.attackList.find(att => att.name === name);
+        if (attack == null){
+            return {
+                damageNumber: 0,
+                damageType: "Basic"
+            }
+        }
+        else {
+            return attack.attackAction();
+        }
     }
 };
 
+export type Attack = {
+    name: string,
+    attackAction: () => Damage
+}
 
-type Damage = {
+export type Damage = {
     damageNumber: number;
     damageType: string;
 }
