@@ -21,6 +21,7 @@
   
 body {
   overflow: hidden;
+  font-family:'Courier New', 'Courier', 'monospace';
 }
 
 #upper-screen {
