@@ -3,14 +3,11 @@ export class Entity {
     maxHealth: number;
     health: number;
     alive: boolean;
-    attackingPower: number;
     attackList: Map<string, Attack>;
 
-    constructor(maxHealth: number,
-            attackingPower: number) {
+    constructor(maxHealth: number) {
         this.maxHealth = maxHealth;
         this.health = maxHealth;
-        this.attackingPower = attackingPower;
         this.alive = true;
         this.attackList = new Map;
     }

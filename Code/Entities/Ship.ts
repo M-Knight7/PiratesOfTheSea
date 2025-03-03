@@ -8,7 +8,7 @@ export class Ship extends Entity {
 
     constructor(
         shipStats: ShipStats) {
-            super(shipStats.maxHealth, shipStats.attackingPower);
+            super(shipStats.maxHealth);
             this.pirateStrength = shipStats.pirateStrength;
             this.cannonStrength = shipStats.cannonStrength;
             this.armorLevel = shipStats.armorLevel;
@@ -57,7 +57,6 @@ export class Ship extends Entity {
 
 export type ShipStats = {
     maxHealth: number, 
-    attackingPower: number, 
     pirateStrength: number,
     cannonStrength: number,
     armorLevel: number // 0-100

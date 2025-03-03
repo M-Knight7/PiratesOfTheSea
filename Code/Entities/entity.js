@@ -2,10 +2,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Entity = void 0;
 var Entity = /** @class */ (function () {
-    function Entity(maxHealth, attackingPower) {
+    function Entity(maxHealth) {
         this.maxHealth = maxHealth;
         this.health = maxHealth;
-        this.attackingPower = attackingPower;
         this.alive = true;
         this.attackList = new Map;
     }
