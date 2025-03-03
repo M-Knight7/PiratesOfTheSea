@@ -7,7 +7,7 @@ var Entity = /** @class */ (function () {
         this.health = maxHealth;
         this.attackingPower = attackingPower;
         this.alive = true;
-        this.attackList = [];
+        this.attackList = new Map;
     }
     Entity.prototype.takeDamage = function (damage) {
         var calcHealth = this.health - damage.damageNumber;
@@ -20,7 +20,7 @@ var Entity = /** @class */ (function () {
         }
     };
     Entity.prototype.attack = function (name) {
-        var attack = this.attackList.find(function (att) { return att.name === name; });
+        var attack = this.attackList.get(name);
         if (attack == null) {
             return {
                 damageNumber: 0,
@@ -28,7 +28,7 @@ var Entity = /** @class */ (function () {
             };
         }
         else {
-            return attack.attackAction();
+            return attack();
         }
     };
     return Entity;
