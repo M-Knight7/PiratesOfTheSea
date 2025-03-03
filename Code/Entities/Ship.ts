@@ -46,12 +46,22 @@ export class Ship extends Entity {
         }
     }
 
-    upgradePirateStrength(upgradeVal: number): void {
-        this.pirateStrength += upgradeVal;
+    updateAttribute(currentVal: number, diff: number): number {
+        const result = currentVal + diff;
+        return (result >= 0) ? result : 0;
     }
 
-    upgradeCannonStrength(upgradeVal: number): void {
-        this.cannonStrength += upgradeVal;
+    updatePirateStrength(diff: number): void {
+        this.pirateStrength = this.updateAttribute(this.pirateStrength, diff);
+
+    }
+
+    updateCannonStrength(diff: number): void {
+        this.cannonStrength = this.updateAttribute(this.cannonStrength, diff);
+    }
+
+    updateArmor(diff: number): void {
+        this.armorLevel = this.updateAttribute(this.armorLevel, diff);
     }
 }
 
