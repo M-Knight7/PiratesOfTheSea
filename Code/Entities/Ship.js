@@ -20,7 +20,7 @@ var entity_1 = require("./entity");
 var Ship = /** @class */ (function (_super) {
     __extends(Ship, _super);
     function Ship(shipStats) {
-        var _this = _super.call(this, shipStats.maxHealth, shipStats.attackingPower) || this;
+        var _this = _super.call(this, shipStats.maxHealth) || this;
         _this.pirateStrength = shipStats.pirateStrength;
         _this.cannonStrength = shipStats.cannonStrength;
         _this.armorLevel = shipStats.armorLevel;
