@@ -1,31 +1,14 @@
 import { AIEntity } from "./AI/AIEntity"
 import { BasicAI } from "./AI/BasicAI"
+import { SimpleEnemyShip } from "./Enemies/SimpleEnemyShip";
 import { Ship, ShipStats } from "./Entities/Ship"
 import { Entity } from "./Entities/entity"
 
-const playerStartShipStats : ShipStats = {
-    maxHealth: 300,
-    pirateStrength: 50,
-    cannonStrength: 50,
-    armorLevel: 0
-}
 
-const simpleShipStats : ShipStats = {
-    maxHealth: 100,
-    pirateStrength: 40,
-    cannonStrength: 20,
-    armorLevel: 0
-}
 
-const flagShip = new Ship(playerStartShipStats)
 
-const simpleShipAI = new BasicAI(new Map<string, number>([
-    ["Cannon", 0.5],
-    ["Storm", 0.5]
-]))
-
-const aiShip1 = new AIEntity(new Ship(simpleShipStats), simpleShipAI);
-const aiShip2 = new AIEntity(new Ship(simpleShipStats), simpleShipAI);
+const aiShip1 = new SimpleEnemyShip();
+const aiShip2 = new SimpleEnemyShip();
 
 function fight(entity1: AIEntity, entity2: AIEntity): void {
     while (entity1.entity.alive && entity2.entity.alive) {

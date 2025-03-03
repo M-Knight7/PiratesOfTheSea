@@ -56,11 +56,18 @@ var Ship = /** @class */ (function (_super) {
             this.health = calcHealth;
         }
     };
-    Ship.prototype.upgradePirateStrength = function (upgradeVal) {
-        this.pirateStrength += upgradeVal;
+    Ship.prototype.updateAttribute = function (currentVal, diff) {
+        var result = currentVal + diff;
+        return (result >= 0) ? result : 0;
     };
-    Ship.prototype.upgradeCannonStrength = function (upgradeVal) {
-        this.cannonStrength += upgradeVal;
+    Ship.prototype.updatePirateStrength = function (diff) {
+        this.pirateStrength = this.updateAttribute(this.pirateStrength, diff);
+    };
+    Ship.prototype.updateCannonStrength = function (diff) {
+        this.cannonStrength = this.updateAttribute(this.cannonStrength, diff);
+    };
+    Ship.prototype.updateArmor = function (diff) {
+        this.armorLevel = this.updateAttribute(this.armorLevel, diff);
     };
     return Ship;
 }(entity_1.Entity));
