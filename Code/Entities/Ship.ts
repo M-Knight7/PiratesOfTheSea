@@ -13,26 +13,19 @@ export class Ship extends Entity {
             this.cannonStrength = shipStats.cannonStrength;
             this.armorLevel = shipStats.armorLevel;
 
-            this.attackList = [
-                {
-                    name: "Cannon",
-                    attackAction: () => {
-                        return {
-                            damageType: "Cannon",
-                            damageNumber: this.cannonStrength
-                        }
+            this.attackList = new Map<string, Attack>([
+                ["Cannon", () => {
+                    return {
+                        damageType: "Cannon",
+                        damageNumber: this.cannonStrength
+                    }}],
+                ["Storm", () => {
+                    return {
+                        damageType: "Storm",
+                        damageNumber: this.pirateStrength
                     }
-                },
-                {
-                    name: "Storm",
-                    attackAction: () => {
-                        return {
-                            damageType: "Storm",
-                            damageNumber: this.pirateStrength
-                        }
-                    }
-                }
-            ]
+                }]
+            ])
     }
 
     override takeDamage(damage: Damage): void {

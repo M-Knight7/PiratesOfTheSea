@@ -4,7 +4,7 @@ export class Entity {
     health: number;
     alive: boolean;
     attackingPower: number;
-    attackList: Array<Attack>;
+    attackList: Map<string, Attack>;
 
     constructor(maxHealth: number,
             attackingPower: number) {
@@ -12,7 +12,7 @@ export class Entity {
         this.health = maxHealth;
         this.attackingPower = attackingPower;
         this.alive = true;
-        this.attackList = [];
+        this.attackList = new Map;
     }
 
     takeDamage(damage: Damage) {
@@ -27,7 +27,7 @@ export class Entity {
     }
 
     attack(name: string): Damage {
-        const attack = this.attackList.find(att => att.name === name);
+        const attack = this.attackList.get(name);
         if (attack == null){
             return {
                 damageNumber: 0,
@@ -35,15 +35,12 @@ export class Entity {
             }
         }
         else {
-            return attack.attackAction();
+            return attack();
         }
     }
 };
 
-export type Attack = {
-    name: string,
-    attackAction: () => Damage
-}
+export type Attack = () => Damage;
 
 export type Damage = {
     damageNumber: number;

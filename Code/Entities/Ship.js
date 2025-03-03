@@ -24,26 +24,20 @@ var Ship = /** @class */ (function (_super) {
         _this.pirateStrength = shipStats.pirateStrength;
         _this.cannonStrength = shipStats.cannonStrength;
         _this.armorLevel = shipStats.armorLevel;
-        _this.attackList = [
-            {
-                name: "Cannon",
-                attackAction: function () {
+        _this.attackList = new Map([
+            ["Cannon", function () {
                     return {
                         damageType: "Cannon",
                         damageNumber: _this.cannonStrength
                     };
-                }
-            },
-            {
-                name: "Storm",
-                attackAction: function () {
+                }],
+            ["Storm", function () {
                     return {
                         damageType: "Storm",
                         damageNumber: _this.pirateStrength
                     };
-                }
-            }
-        ];
+                }]
+        ]);
         return _this;
     }
     Ship.prototype.takeDamage = function (damage) {
