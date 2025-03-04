@@ -26,10 +26,7 @@ export class Entity {
     attack(name: string): Damage {
         const attack = this.attackList.get(name);
         if (attack == null){
-            return {
-                damageNumber: 0,
-                damageType: "Basic"
-            }
+            throw Error(`${this} does not have the attack: ${name}`)
         }
         else {
             return attack();
