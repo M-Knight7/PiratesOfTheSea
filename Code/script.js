@@ -1,6 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var SimpleEnemyShip_1 = require("./Enemies/SimpleEnemyShip");
+var FlagShip_1 = require("./FlagShip");
+var flagShip = new FlagShip_1.FlagShip();
 var aiShip1 = new SimpleEnemyShip_1.SimpleEnemyShip();
 var aiShip2 = new SimpleEnemyShip_1.SimpleEnemyShip();
 function fight(entity1, entity2) {
@@ -16,5 +18,29 @@ function fight(entity1, entity2) {
         console.log("Ship1 has won!");
     else
         console.log("Ship2 has won!");
+}
+function playerAIFight(flagShip, enemy) {
+    var fightActive = true;
+    while (fightActive) {
+        var playerAttack = getUserInput();
+        var playerAttackAction = flagShip.attack(getUserInput());
+        enemy.entity.takeDamage(playerAttackAction);
+        console.log("You attack ".concat(enemy, " using ").concat(playerAttack, "!"));
+        console.log("Enemy health: ".concat(enemy.entity.health));
+        if (!enemy.entity.alive) {
+            console.log("You have won the fight!");
+            return;
+        }
+        var enemyAttack = enemy.attack();
+        flagShip.takeDamage(enemyAttack);
+        if (!flagShip.alive) {
+            console.log("You have lost the fight!");
+            return;
+        }
+    }
+}
+function getUserInput() {
+    // ToDo Wright function to get user input
+    return "Storm";
 }
 fight(aiShip1, aiShip2);

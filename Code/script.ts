@@ -1,12 +1,8 @@
 import { AIEntity } from "./AI/AIEntity"
-import { BasicAI } from "./AI/BasicAI"
 import { SimpleEnemyShip } from "./Enemies/SimpleEnemyShip";
-import { Ship, ShipStats } from "./Entities/Ship"
-import { Entity } from "./Entities/entity"
+import { FlagShip } from "./FlagShip";
 
-
-
-
+const flagShip = new FlagShip();
 const aiShip1 = new SimpleEnemyShip();
 const aiShip2 = new SimpleEnemyShip();
 
@@ -21,6 +17,32 @@ function fight(entity1: AIEntity, entity2: AIEntity): void {
     }
     if (entity1.entity.alive) console.log("Ship1 has won!");
     else console.log("Ship2 has won!");
+}
+
+function playerAIFight(flagShip: FlagShip, enemy: AIEntity): void {
+    let fightActive = true;
+    while(fightActive) {
+        let playerAttack = getUserInput();
+        let playerAttackAction = flagShip.attack(getUserInput());
+        enemy.entity.takeDamage(playerAttackAction);
+        console.log(`You attack ${enemy} using ${playerAttack}!`);
+        console.log(`Enemy health: ${enemy.entity.health}`)
+        if (!enemy.entity.alive) {
+            console.log("You have won the fight!");
+            return;
+        }
+        let enemyAttack = enemy.attack();
+        flagShip.takeDamage(enemyAttack);
+        if (!flagShip.alive) {
+            console.log("You have lost the fight!");
+            return;
+        }
+    }
+}
+
+function getUserInput(): string {
+    // ToDo Wright function to get user input
+    return "Storm";
 }
 
 

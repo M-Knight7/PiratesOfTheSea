@@ -21,10 +21,7 @@ var Entity = /** @class */ (function () {
     Entity.prototype.attack = function (name) {
         var attack = this.attackList.get(name);
         if (attack == null) {
-            return {
-                damageNumber: 0,
-                damageType: "Basic"
-            };
+            throw Error("".concat(this, " does not have the attack: ").concat(name));
         }
         else {
             return attack();
